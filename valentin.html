@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #c9184a;
+      margin-top: 80px;
+    }
+
+    .container {
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 15px;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background: #adb5bd;
+      color: black;
+    }
+
+    #message {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 30px;
+      display: none;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .penguin, .memory {
+      margin-top: 60px;
+      display: none;
+    }
+
+    .penguin img {
+      width: 200px;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-top: 15px;
+      color: #5a189a;
+      padding: 0 20px;
+    }
+
+    .memory img {
+      width: 260px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="question">Will you be my Valentine? 💖</h1>
+
+  <div class="container">
+    <button id="yesBtn">YES 💕</button>
+    <button id="noBtn">NO 😒</button>
+  </div>
+
+  <div id="message">hehe I love you baby 💘</div>
+
+  <!-- 🐧 Penguin -->
+  <div class="penguin">
+    <img src="penguin.png.png" alt="penguin with rock">
+    <div class="quote">
+      "A rock for you because a penguin gives the smoothest rock to propose their partner and promises to be with them till the end of their life."
+    </div>
+  </div>
+
+  <!-- 📸 Memory -->
+  <div class="memory">
+    <h2>Our Best Memory ❤️</h2>
+    <img src="your-image.jpg.jpg" alt="Our Picture">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+    const penguin = document.querySelector(".penguin");
+    const memory = document.querySelector(".memory");
+    const question = document.getElementById("question");
+
+    noBtn.addEventListener("click", () => {
+      noBtn.innerText = "😠 acha beta 😏";
+      setTimeout(() => {
+        noBtn.classList.add("hidden");
+        yesBtn.style.transform = "scale(1.4)";
+      }, 1000);
+    });
+
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+      penguin.style.display = "block";
+      memory.style.display = "block";
+      question.style.display = "none";
+      document.querySelector(".container").style.display = "none";
+    });
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
+
+</body>
+</html>
